@@ -1,0 +1,34 @@
+16. Function for Neural Network
+
+
+import pandas as pd
+df = pd.read_csv("diabetes.csv")
+df
+
+feature_cols = ['Pregnancies', 'Insulin', 'BMI', 'Age','Glucose','BloodPressure','DiabetesPedigreeFunction']
+X = df[feature_cols] # Features
+y = df.Outcome # Target variable
+
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=0)
+
+from sklearn.preprocessing import MinMaxScaler
+scaling = MinMaxScaler(feature_range=(-1, 1)).fit(X_train)
+X_train = scaling.transform(X_train)
+X_test = scaling.transform(X_test)
+
+from sklearn.neural_network import MLPClassifier
+mlp = MLPClassifier(hidden_layer_sizes=(8,8,8))
+mlp.fit(X_train,y_train)
+y_pred = mlp.predict(X_test)
+
+# import the metrics class
+from sklearn import metrics
+cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
+cnf_matrix
+
+print("Accuracy : ",metrics.accuracy_score(y_test, y_pred))
+print("Precision : ",metrics.precision_score(y_test, y_pred))
+print("Recall : ",metrics.recall_score(y_test, y_pred))
+print("F-score : ",metrics.f1_score(y_test, y_pred))
+

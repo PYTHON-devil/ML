@@ -1,0 +1,28 @@
+5. Load Data into Matrix
+
+import numpy as np
+import pandas as pd
+
+matrix = np.array([-2,-8,6,1,7,-3,1,6,11,1,-15,19]).reshape(4,3)
+matrix
+
+print("Size of the matrix")
+matrix.size
+
+print("Size of the first row")
+matrix[0].size
+
+print("Size of the third column")
+matrix[:,1].size
+
+df = pd.read_csv('text1.txt',sep=" ",header=None)
+df
+
+a = np.array([ [1, 2, 3], [1,2,3], [7, 8, 9]])
+print("matrix a : ")
+a
+
+np.savetxt('text2.txt',a,fmt='%.2f')
+
+f = open('text2.txt')
+print(f.read())

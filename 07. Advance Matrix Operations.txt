@@ -1,0 +1,43 @@
+7. Advance Matrix Operations
+
+import numpy as np
+
+matrix = np.array([-2,-8,6,1,7,-3,1,6,11,1,-15,19]).reshape(4,3)
+matrix
+
+print("Absolute Values of the matrix ")
+np.absolute(matrix)
+
+print('Negative of matrix')
+np.negative(matrix)
+
+#adding row at the end 
+print("Add Row")
+np.append(matrix,[[13,14,15]],axis=0)
+
+#adding row at specified position
+print("Add Row with position")
+np.insert(matrix,1,[[19,12,10]],axis=0)
+
+#Adding column at the end
+print("Add Column")
+np.append(matrix,[[29],[50],[28],[26]],axis=1)
+
+#removing specified column
+print("Remove Column")
+np.delete(matrix,1,axis=1)
+
+#removing specified row
+print("Remove Row")
+np.delete(matrix,1,axis=0)
+
+print('maximum element of the matrix',np.max(matrix))
+
+print('minimum element of the matrix',np.min(matrix))
+
+print('sum of elements of the matrix',np.sum(matrix))
+
+print('sum of elements of second row of the matrix',np.sum(matrix[1]))
+
+print('sum of elements of third column of the matrix',np.sum(matrix[:,2]))
+

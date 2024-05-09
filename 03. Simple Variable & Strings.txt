@@ -1,0 +1,13 @@
+3. Simple Variable & Strings
+
+#Create and initialize int variable
+a = 15
+
+#Create and initialize String variable
+b = "Hello World"
+
+#Create and initialize floating variable
+c = 16.0
+
+#simple formatting for variables
+print("Numerical value = %d \n String value = %s \n Floating value = %f"%(a,b,c))

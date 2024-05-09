@@ -1,0 +1,50 @@
+12. Linear Regression Problem
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+H_list = ["x","y"]
+data = pd.read_csv("ex1data1.csv",names=H_list)
+data
+
+data.plot(kind = 'scatter', x = 'x',y = 'y')
+
+X = data.iloc[:,0]
+Y = data.iloc[:,1]
+
+Xmean = np.mean(X)
+print("Mean of X = ",Xmean)
+
+Ymean = np.mean(Y)
+print("Mean of Y = ",Ymean)
+
+num = 0
+den = 0
+for i in range(len(X)):
+    num += (X[i] - Xmean)*(Y[i]-Ymean)
+    den += (X[i] - Xmean)**2
+
+#B1 slope of the line
+B1 = num/den
+print("the value of slope m, i.e., B1 = ",B1)
+
+#B0 y-intercept of the line
+B0 = Ymean - B1*Xmean
+print("The value of the y intercept c, i.e., B0 = ",B0)
+
+#equation of the line
+Y_pred = B0 + B1*X
+#where B0 and B1 are intercept and slope respectively
+print("EQUATION OF THE LINE")
+print('y = ','%.3f'%B0,' + ','%.3f'%B1,'*x')
+
+#plotting line which best represent the data
+data.plot(kind = 'scatter', x = 'x',y = 'y')
+plt.plot([min(X),max(X)], [min(Y_pred), max(Y_pred)], color = 'red')
+plt.show()
+
+#prediction for x = 15.67
+x = 15.67
+y = B0 + B1*x
+print("Predicted value of y for x = 15.67 is ",y)

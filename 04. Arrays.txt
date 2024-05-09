@@ -1,0 +1,28 @@
+4. Arrays
+
+import numpy as np
+
+#Single Dimensional Array
+a = ['S',3,"JERRY",84.234,8]
+print("Single dimensional array : \n", a)
+
+# Multi-Dimensional Array
+b = [ [1, 6, 20], [8, 3, 0], [7, 2, 1] ]
+print("\nMulti-Dimensional array : \n", b)
+
+# Array with all ones
+c = np.ones(5, dtype = int)
+print("\nArray with all ones : \n", c)
+
+# Array with all zeros
+d = np.zeros(6)
+print("\nArray with all zeros : \n", d)
+
+# Array with random Values
+e = np.random.randint(1,100,size = 10) #range (1,100)
+print("\nArray with randome values : \n", e)
+
+# Diagonal Matrix
+diag_el = np.array([9,2,8,5])
+f = np.diag(diag_el)
+print("\nDiagonal Matrix : \n", f)

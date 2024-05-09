@@ -1,0 +1,52 @@
+13. Linear Regression on Multiple Features
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import sklearn as sklearn
+from sklearn import datasets
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+boston_dataset = pd.read_csv("BostonHousing.csv")
+boston_dataset
+
+boston_df.head()
+
+boston_df_target = np.asarray(boston_dataset)
+
+boston_df['House Price'] = pd.Series(boston_df_target)
+
+boston_dataset.feature_names
+
+X = boston_df.iloc[:,:-1]
+Y = boston_df.iloc[:,-1]
+print(boston_df)
+
+#splitting of dataset
+x_train,x_test,y_train,y_test = train_test_split(X,Y,test_size=0.25,random_state=0)
+
+lreg = LinearRegression()
+lreg.fit(x_train,y_train)
+y_pred = lreg.predict(x_test)
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
+print ("iNTERCEPT : ",lreg.intercept_)
+print ("CO-EFFICIENT : ",lreg.coef_)
+
+#applying model
+lin_model = LinearRegression()
+lin_model.fit(x_train, y_train)
+y_pred=lin_model.predict(x_test)
+
+# model evaluation
+from sklearn.metrics import mean_squared_error, r2_score
+rmse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+# printing values
+print('Slope:' ,lin_model.coef_)
+print('Intercept:', lin_model.intercept_)
+print('Root mean squared error: ', rmse)
+print('R2 score: ', r2)
+

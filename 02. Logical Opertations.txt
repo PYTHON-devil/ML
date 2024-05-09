@@ -1,0 +1,59 @@
+2. Logical Opertations
+
+#Logical OR operation
+a = 8
+b = 3
+
+if(a>0 or b<0):
+    print("a is a positive number")
+if(a<0 or b>0):
+    print("b is a positive number")
+if(a>0 or b>0):
+    print("a and b are positive numbers")
+if(a<0 or b<0):
+    print("a and b are negative number")
+
+#logical AND Operation
+a = 8
+b = 3
+
+if(a>0 and b<0):
+    print("a is a positive number")
+if(a<0 and b>0):
+    print("b is a positive number")
+if(a>0 and b>0):
+    print("a and b are positive numbers")
+if(a<0 and b<0):
+    print("a and b are negative number")
+
+#checking for equality
+a = 8
+b = 3
+c = 3
+
+if a==b:
+    print("a and b are equal")
+else:
+    print("a and b are not equal")
+if b==c:
+    print("b and c are equal")
+else:
+    print("b and c are not equal")
+
+#Logical NOT Operation
+a = 8
+
+if not a:
+    print("Boolean value of a is false")
+if not(a%2==0 or a%3==0):
+    print("a is not divisible by either a or b")
+else:
+    print("a is divisible by 2 and 3")
+
+#Logical XOR Operation
+
+a = 8
+b = 4
+
+xor = a^b
+print("XOR of a=8 and b=4 is: ", xor)
